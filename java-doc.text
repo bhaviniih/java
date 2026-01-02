@@ -1,0 +1,33 @@
+
+I want to start learning Java. Please share a step-by-step guide. I also have 5 years of experience working with Laravel and Node.js.
+
+= Core Path
+	- System Setup – Install JDK, IDE, verify setup
+	- Core Java – Syntax, OOP, Collections, Exceptions, Java 8 features
+	- Essential Advanced Java – Generics, I/O, Multithreading, Date/Time, Reflection
+	- Database & ORM (Part 1) – JDBC, Hibernate basics, CRUD
+	- Spring Boot API (Basic) – REST, in-memory DB, CRUD
+	- Database & ORM (Part 2) – Advanced relationships, JPQL, performance
+	- Spring Boot API (Full) – Real DB, validation, error handling, security
+	- Testing – Unit & integration testing with JUnit & Mockito
+	- Advanced Java (Real-World) – Design patterns, microservices, performance
+	- Deployment & DevOps – Docker, CI/CD, cloud deployment, monitoring
+
+= Optional Paths
+	- Java Web – Spring MVC, Thymeleaf, JSP
+	- Desktop App (JavaFX/Swing)
+	- Mobile App Android SDK, Activities, REST integration
+
+
+Proper Road map
+
+
+
+
+
+
+
+= Command
+
+- Compile: javac src/HelloWorld.java
+- Run: java -cp src HelloWorld
