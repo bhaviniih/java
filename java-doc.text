@@ -27,7 +27,46 @@ Proper Road map
 
 
 
-= Command
+==== Command
 
 - Compile: javac src/HelloWorld.java
 - Run: java -cp src HelloWorld
+
+
+🚀 Your FIRST Spring Boot API (Step-by-Step)
+==== Create project (official way)
+
+Open browser and go to Spring Initializr
+(Search: spring initializr)
+
+Choose:
+
+Project: Maven
+
+Language: Java
+
+Spring Boot: default
+
+Group: com.example
+
+Artifact: demo
+
+Packaging: Jar
+
+Java: 21
+
+Add Dependency:
+
+✅ Spring Web
+
+Click Generate → download zip
+
+
+unzip demo.zip
+cd demo
+
+== Project run Command
+./mvnw spring-boot:run
+
+== Create RestController
+nano src/main/java/com/example/demo/HelloController.java
