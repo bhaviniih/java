@@ -2,6 +2,7 @@ package com.example.demo.model;
 
 public class Person {
 
+    private int id;
     private String name;
     private int age;
 
@@ -9,12 +10,21 @@ public class Person {
     public Person() {}
 
     // Constructor
-    public Person(String name, int age) {
+    public Person(int id, String name, int age) {
+        this.id = id;
         this.name = name;
         this.age = age;
     }
 
-    // Getter
+    // Getters & Setters
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
     public String getName() {
         return name;
     }
@@ -23,7 +33,6 @@ public class Person {
         this.name = name;
     }
 
-    // Getter
     public int getAge() {
         return age;
     }
