@@ -2,31 +2,30 @@ package com.example.demo.service;
 
 import com.example.demo.exception.PersonNotFoundException;
 import com.example.demo.model.Person;
+import com.example.demo.repository.PersonRepository;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @Service
 public class PersonService {
 
-    private List<Person> people = new ArrayList<>();
-    private int counter = 1;
+    private final PersonRepository personRepository;
+
+    public PersonService(PersonRepository personRepository) {
+        this.personRepository = personRepository;
+    }
 
     public Person addPerson(Person person) {
-        person.setId(counter++);
-        people.add(person);
-        return person;
+        return personRepository.save(person);
     }
 
     public List<Person> getAllPeople() {
-        return people;
+        return personRepository.findAll();
     }
 
     public Person getPersonById(int id) {
-        return people.stream()
-                .filter(p -> p.getId() == id)
-                .findFirst()
+        return personRepository.findById(id)
                 .orElseThrow(() -> new PersonNotFoundException(id));
     }
 
@@ -34,11 +33,11 @@ public class PersonService {
         Person person = getPersonById(id);
         person.setName(updatedPerson.getName());
         person.setAge(updatedPerson.getAge());
-        return person;
+        return personRepository.save(person);
     }
 
     public void deletePerson(int id) {
         Person person = getPersonById(id);
-        people.remove(person);
+        personRepository.delete(person);
     }
 }

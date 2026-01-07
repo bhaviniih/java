@@ -5,6 +5,8 @@ import com.example.demo.service.PersonService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import jakarta.validation.Valid;
+
 import java.util.List;
 
 @RestController
@@ -18,7 +20,7 @@ public class PersonController {
     }
 
     @PostMapping
-    public ResponseEntity<Person> addPerson(@RequestBody Person person) {
+    public ResponseEntity<Person> addPerson(@Valid @RequestBody Person person) {
         return ResponseEntity.status(201).body(personService.addPerson(person));
     }
 
@@ -35,7 +37,7 @@ public class PersonController {
     @PutMapping("/{id}")
     public ResponseEntity<Person> updatePerson(
             @PathVariable int id,
-            @RequestBody Person person) {
+            @Valid @RequestBody Person person) {
 
         return ResponseEntity.ok(personService.updatePerson(id, person));
     }
