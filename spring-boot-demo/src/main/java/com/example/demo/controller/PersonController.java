@@ -7,6 +7,10 @@ import org.springframework.web.bind.annotation.*;
 
 import jakarta.validation.Valid;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.web.PageableDefault;
+
 import java.util.List;
 
 @RestController
@@ -24,12 +28,16 @@ public class PersonController {
         return ResponseEntity.status(201).body(personService.addPerson(person));
     }
 
+    // @GetMapping
+    // public ResponseEntity<List<Person>> getPeople() {
+    //     return ResponseEntity.ok(personService.getAllPeople());
+    // }
     @GetMapping
-    public ResponseEntity<List<Person>> getPeople() {
-        return ResponseEntity.ok(personService.getAllPeople());
+    public ResponseEntity<Page<Person>> getPeople(@PageableDefault(size = 5, sort = "id") Pageable pageable) {
+        return ResponseEntity.ok(personService.getPeople(pageable));
     }
 
-    @GetMapping("/{id}")
+    @GetMapping("/{id}") 
     public ResponseEntity<Person> getPerson(@PathVariable int id) {
         return ResponseEntity.ok(personService.getPersonById(id));
     }
