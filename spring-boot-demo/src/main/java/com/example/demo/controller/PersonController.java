@@ -27,7 +27,7 @@ public class PersonController {
     }
 
     @PostMapping
-    public ResponseEntity<Person> addPerson(@Valid @RequestBody PersonDTO dto) {
+    public ResponseEntity<PersonDTO> addPerson(@Valid @RequestBody PersonDTO dto) {
         // return ResponseEntity.status(201).body(personService.addPerson(person));
 
         Person saved = personService.addPerson(PersonMapper.toEntity(dto));
@@ -55,7 +55,7 @@ public class PersonController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Person> updatePerson(@PathVariable int id, @Valid @RequestBody PersonDTO dto) {
+    public ResponseEntity<PersonDTO> updatePerson(@PathVariable int id, @Valid @RequestBody PersonDTO dto) {
 
         // return ResponseEntity.ok(personService.updatePerson(id, person));
 
