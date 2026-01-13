@@ -1,16 +1,79 @@
 ================================= User Management Project =================================
 
+1️⃣ Create Spring Boot Project
+	= Use Spring Initializr (web (https://start.spring.io/) or IDE):
+		- Project details
+		- Project: Maven
+		- Language: Java
+		- Spring Boot: default
+		- Group: com.example
+		- Artifact: usermanagement
+		- Packaging: Jar
+		- Java: 21
+
+	= Dependencies (IMPORTANT)
+		✅ Spring Web
+		✅ Spring Data JPA
+		✅ Spring Security
+		✅ MySQL Driver
+		✅ Validation
 
 
+2️⃣ Project Folder Structure (Day 1 version)
+	= After opening project, create packages:
+		com.example.usermanagement
+		│
+		├── controller
+		├── service
+		├── repository
+		├── entity
+		├── dto
+		├── security
+		├── exception
+		└── config
 
 
+3️⃣ Create MySQL Database
 
 
+4️⃣ Configure MySQL Connection
+	= Open:
+		src/main/resources/application.properties
+	= Add:
+		spring.datasource.url=jdbc:mysql://localhost:3306/user_management_db
+		spring.datasource.username=root
+		spring.datasource.password=YOUR_PASSWORD
+
+		spring.jpa.hibernate.ddl-auto=update
+		spring.jpa.show-sql=true
+		spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.MySQL8Dialect
+
+		server.port=8080
 
 
+5️⃣ Test Database Connection (IMPORTANT)
+	= Create test entity:
+		package com.example.usermanagement.entity;
 
+		import jakarta.persistence.*;
 
+		@Entity
+		public class TestEntity {
 
+			@Id
+			@GeneratedValue(strategy = GenerationType.IDENTITY)
+			private Long id;
+		}
+
+	= Run app:
+		./mvnw spring-boot:run
+	
+	✅ If app starts → DB connected successfully
+		- Check MySQL
+	
+6️⃣ Remove Test Entity
+	- After confirmation, delete TestEntity.java
+	- (We don’t keep test code in live projects)
 
 
 
