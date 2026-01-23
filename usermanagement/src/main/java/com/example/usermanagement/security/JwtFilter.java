@@ -29,11 +29,11 @@ public class JwtFilter extends OncePerRequestFilter {
                 List<String> roles = JwtUtil.extractRoles(token);
 
                 var authorities = roles.stream()
-                        .map(SimpleGrantedAuthority::new)
+                        // .map(SimpleGrantedAuthority::new)
+                        .map(role -> new SimpleGrantedAuthority(role))
                         .toList();
 
-                var auth = new UsernamePasswordAuthenticationToken(
-                        email, null, authorities);
+                var auth = new UsernamePasswordAuthenticationToken(email, null, authorities);
 
                 SecurityContextHolder.getContext().setAuthentication(auth);
 
